@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Maven on HiwiK</title><link>/tags/maven/</link><description>Recent content in Maven on HiwiK</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Hong Sikun</copyright><lastBuildDate>Tue, 02 Apr 2024 21:23:46 +0800</lastBuildDate><atom:link href="/tags/maven/index.xml" rel="self" type="application/rss+xml"/><item><title>Maven入门与介绍</title><link>/hiwikhome/mavenstudy/</link><pubDate>Tue, 02 Apr 2024 21:23:46 +0800</pubDate><guid>/hiwikhome/mavenstudy/</guid><description>&lt;img src="/hiwikhome/mavenstudy/post.png" alt="Featured image of post Maven入门与介绍" />&lt;h2 id="-maven-是什么">🐣 Maven 是什么&lt;/h2>
+&lt;p>Maven是一个项目管理和自动化构建工具，它基于项目对象模型（POM，Project Object Model）的概念。Maven可以帮助开发者更好地构建和管理任何基于Java的项目。它使用一个中央信息库来存储项目的构建信息、依赖关系等。&lt;/p>
+&lt;h2 id="-maven-的核心概念">🐤 Maven 的核心概念&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>POM（Project Object Model）&lt;/strong>: POM是Maven项目的基本工作单元。它包含了项目的基本信息，比如项目名称、版本、依赖项、插件等。&lt;/li>
+&lt;li>&lt;strong>依赖管理&lt;/strong>: Maven允许你指定项目依赖的外部库，自动从中央仓库下载这些依赖。&lt;/li>
+&lt;li>&lt;strong>约定优于配置&lt;/strong>: Maven使用一个标准的目录布局和默认的构建生命周期，这意味着如果你遵循这些约定，你可以用最少的配置完成项目构建。&lt;/li>
+&lt;li>&lt;strong>生命周期和插件&lt;/strong>: Maven的构建过程分为几个阶段（如编译、测试、打包等），每个阶段都可以绑定具体的任务，这些任务是通过插件来实现的。&lt;/li>
+&lt;/ul>
+&lt;h2 id="-maven-标签">🐥 Maven 标签&lt;/h2>
+&lt;h3 id="基础项目信息">基础项目信息&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;modelVersion&amp;gt;&lt;/code>&lt;/strong>: 定义了POM模型的版本（通常是&lt;code>4.0.0&lt;/code>）。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;modelVersion&amp;gt;&lt;/span>4.0.0&lt;span class="nt">&amp;lt;/modelVersion&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;groupId&amp;gt;&lt;/code>&lt;/strong>: 定义了项目的组ID，通常表示项目所属的组织或者公司。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>com.example&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;artifactId&amp;gt;&lt;/code>&lt;/strong>: 定义了项目的ID，这是项目的名称。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>my-application&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;version&amp;gt;&lt;/code>&lt;/strong>: 定义了项目的版本。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>1.0-SNAPSHOT&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;packaging&amp;gt;&lt;/code>&lt;/strong>: 定义了项目的打包方式，如&lt;code>jar&lt;/code>、&lt;code>war&lt;/code>等。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;packaging&amp;gt;&lt;/span>jar&lt;span class="nt">&amp;lt;/packaging&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="依赖关系">依赖关系&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;dependencies&amp;gt;&lt;/code>&lt;/strong>: 包含项目所需的所有依赖。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>junit&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>junit&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>4.12&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;scope&amp;gt;&lt;/span>test&lt;span class="nt">&amp;lt;/scope&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="构建配置">构建配置&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;build&amp;gt;&lt;/code>&lt;/strong>: 包含构建的配置信息，如源代码目录、目标目录、插件等。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;build&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;plugins&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;plugin&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.apache.maven.plugins&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>maven-compiler-plugin&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>3.8.1&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;configuration&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;source&amp;gt;&lt;/span>1.8&lt;span class="nt">&amp;lt;/source&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;target&amp;gt;&lt;/span>1.8&lt;span class="nt">&amp;lt;/target&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/configuration&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/plugin&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/plugins&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/build&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="插件">插件&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;plugins&amp;gt;&lt;/code>&lt;/strong>: 定义了项目构建过程中使用的插件。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;plugins&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;plugin&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.apache.maven.plugins&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>maven-surefire-plugin&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>2.22.2&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/plugin&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/plugins&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="项目属性">项目属性&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;properties&amp;gt;&lt;/code>&lt;/strong>: 定义了一些项目的属性，可以在POM中重用。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;properties&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;java.version&amp;gt;&lt;/span>1.8&lt;span class="nt">&amp;lt;/java.version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/properties&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="分发管理">分发管理&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;distributionManagement&amp;gt;&lt;/code>&lt;/strong>: 定义了项目分发的配置，如部署到Maven仓库的信息。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;distributionManagement&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;repository&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;id&amp;gt;&lt;/span>central&lt;span class="nt">&amp;lt;/id&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;name&amp;gt;&lt;/span>Central Repository&lt;span class="nt">&amp;lt;/name&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;url&amp;gt;&lt;/span>http://path/to/your/repo&lt;span class="nt">&amp;lt;/url&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/repository&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/distributionManagement&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="仓库">仓库&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;repositories&amp;gt;&lt;/code>&lt;/strong>: 定义项目所使用的其他仓库的位置。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;repositories&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;repository&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;id&amp;gt;&lt;/span>central&lt;span class="nt">&amp;lt;/id&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;url&amp;gt;&lt;/span>https://repo.maven.apache.org/maven2&lt;span class="nt">&amp;lt;/url&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/repository&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/repositories&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="配置文件管理">配置文件管理&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>&amp;lt;profiles&amp;gt;&lt;/code>&lt;/strong>: 定义了一组不同的配置，可以根据不同的环境选择性地激活。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;profiles&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;profile&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;id&amp;gt;&lt;/span>development&lt;span class="nt">&amp;lt;/id&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;properties&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;environment&amp;gt;&lt;/span>development&lt;span class="nt">&amp;lt;/environment&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/properties&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/profile&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/profiles&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;p>这些标签构成了Maven &lt;code>pom.xml&lt;/code>文件的基本框架，允许你配置项目的构建、依赖、插件等方面的细节。通过组合这些标签，你可以灵活地管理和构建你的Java项目。&lt;/p>
+&lt;h2 id="-maven-的生命周期">🐦 Maven 的生命周期&lt;/h2>
+&lt;p>Maven 使用一种称为构建生命周期的概念来管理项目构建过程。每个生命周期由一系列阶段（phase）组成，这些阶段在执行时按照特定的顺序进行。Maven 主要有三个标准的构建生命周期：&lt;strong>clean&lt;/strong>、&lt;strong>default&lt;/strong>（或称为&lt;strong>build&lt;/strong>）和&lt;strong>site&lt;/strong>。这些生命周期覆盖了项目的清理、构建和文档生成等方面。&lt;/p>
+&lt;p>&lt;strong>1 Clean 生命周期&lt;/strong>&lt;/p>
+&lt;p>Clean 生命周期的目的是清理项目，删除之前构建生成的所有文件。它主要包含以下三个阶段：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>pre-clean&lt;/strong>：执行清理前的工作。&lt;/li>
+&lt;li>&lt;strong>clean&lt;/strong>：清理上一次构建生成的所有文件。&lt;/li>
+&lt;li>&lt;strong>post-clean&lt;/strong>：执行清理后的工作，如完成清理后的一些资源释放等。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>2 Default 生命周期&lt;/strong>&lt;/p>
+&lt;p>Default 生命周期是Maven最核心的部分，负责项目的构建和部署。它包含了多个阶段，主要阶段如下：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>validate&lt;/strong>：验证项目是否正确，所有必要信息是否可用。&lt;/li>
+&lt;li>&lt;strong>compile&lt;/strong>：编译项目的源代码。&lt;/li>
+&lt;li>&lt;strong>test&lt;/strong>：使用适当的单元测试框架运行测试，这些测试不需要打包或部署。&lt;/li>
+&lt;li>&lt;strong>package&lt;/strong>：打包编译后的代码，通常是创建JAR或WAR文件。&lt;/li>
+&lt;li>&lt;strong>verify&lt;/strong>：对集成测试的结果进行检查，以确保质量达标。&lt;/li>
+&lt;li>&lt;strong>install&lt;/strong>：将包安装到Maven本地仓库，供本地其他项目使用。&lt;/li>
+&lt;li>&lt;strong>deploy&lt;/strong>：在构建环境中完成的最后一个阶段，将最终的包复制到远程仓库供其他开发人员和Maven项目使用。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>3 Site 生命周期&lt;/strong>&lt;/p>
+&lt;p>Site 生命周期负责创建和发布项目的站点文档。它包括以下阶段：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>pre-site&lt;/strong>：执行生成项目站点前的工作。&lt;/li>
+&lt;li>&lt;strong>site&lt;/strong>：生成项目的站点文档。&lt;/li>
+&lt;li>&lt;strong>post-site&lt;/strong>：执行生成站点后的工作，如部署站点到服务器。&lt;/li>
+&lt;li>&lt;strong>site-deploy&lt;/strong>：将生成的站点文档部署到特定的服务器上。&lt;/li>
+&lt;/ul>
+&lt;h2 id="-dependencies-和-dependencymanagement">🐔 dependencies 和 dependencyManagement&lt;/h2>
+&lt;p>在Maven项目中，&lt;code>&amp;lt;dependencies&amp;gt;&lt;/code>和&lt;code>&amp;lt;dependencyManagement&amp;gt;&lt;/code>是用来管理项目依赖的两个重要元素。它们的作用和使用场景有所不同&lt;/p>
+&lt;p>&lt;code>&amp;lt;dependencies&amp;gt;&lt;/code>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>&amp;lt;dependencies&amp;gt;&lt;/code>元素用于明确声明项目直接依赖的外部库。当你在项目中需要使用某个库时，就在&lt;code>&amp;lt;dependencies&amp;gt;&lt;/code>中添加一个&lt;code>&amp;lt;dependency&amp;gt;&lt;/code>项。每个&lt;code>&amp;lt;dependency&amp;gt;&lt;/code>项都会指定依赖的&lt;code>groupId&lt;/code>、&lt;code>artifactId&lt;/code>、&lt;code>version&lt;/code>等信息。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;code>&amp;lt;dependencyManagement&amp;gt;&lt;/code>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>&amp;lt;dependencyManagement&amp;gt;&lt;/code>元素用于在&lt;strong>父POM中&lt;/strong>统一管理项目的依赖版本，而不是直接引入依赖。在&lt;code>&amp;lt;dependencyManagement&amp;gt;&lt;/code>内部声明的依赖不会直接加入到项目中，只有当子模块中声明了相同的&lt;code>groupId&lt;/code>和&lt;code>artifactId&lt;/code>时，&lt;code>&amp;lt;dependencyManagement&amp;gt;&lt;/code>中指定的版本和范围（&lt;code>scope&lt;/code>）等才会生效。这使得在多模块项目中能够很方便地统一管理依赖版本，避免了版本冲突和依赖的重复声明。&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>在父POM中使用&lt;code>&amp;lt;dependencyManagement&amp;gt;&lt;/code>管理多模块项目的依赖版本&lt;/strong>：子模块需要这个依赖时，应该在子模块的&lt;code>pom.xml&lt;/code>中的&lt;code>&amp;lt;dependencies&amp;gt;&lt;/code>部分声明这个依赖，这样才能真正引入到子模块中。&lt;/li>
+&lt;li>&lt;strong>在单个模块项目中或父模块自身需要使用某个依赖&lt;/strong>：除了在&lt;code>&amp;lt;dependencyManagement&amp;gt;&lt;/code>中指定版本信息外，还需要在&lt;code>&amp;lt;dependencies&amp;gt;&lt;/code>中声明这个依赖，才能将其引入项目中。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependencyManagement&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.springframework&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>spring-core&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;version&amp;gt;&lt;/span>5.2.3.RELEASE&lt;span class="nt">&amp;lt;/version&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependencyManagement&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;groupId&amp;gt;&lt;/span>org.springframework&lt;span class="nt">&amp;lt;/groupId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;artifactId&amp;gt;&lt;/span>spring-core&lt;span class="nt">&amp;lt;/artifactId&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- 这里不需要指定版本，因为已经在&amp;lt;dependencyManagement&amp;gt;中指定 --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/dependency&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/dependencies&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="-附录">🪶 附录&lt;/h2>
+&lt;p>&lt;a class="link" href="https://maven.apache.org/guides/index.html" target="_blank" rel="noopener"
+>Maven 官方文档&lt;/a>&lt;/p></description></item></channel></rss>
