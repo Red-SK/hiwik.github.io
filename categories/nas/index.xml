@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NAS on HiwiK</title><link>/categories/nas/</link><description>Recent content in NAS on HiwiK</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Hong Sikun</copyright><lastBuildDate>Sun, 02 Jun 2024 18:18:02 +0800</lastBuildDate><atom:link href="/categories/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>群晖IPV6 + DDNS</title><link>/hiwikhome/nasddns/</link><pubDate>Sun, 02 Jun 2024 18:18:02 +0800</pubDate><guid>/hiwikhome/nasddns/</guid><description>&lt;img src="/hiwikhome/nasddns/post.png" alt="Featured image of post 群晖IPV6 + DDNS" />&lt;h2 id="1-为什么需要-ipv6--ddns">1 为什么需要 IPv6 + DDNS&lt;/h2>
+&lt;ul>
+&lt;li>IPV4 公网地址现在难以从运营商获取，即使可以获取也需要额外的价钱。&lt;/li>
+&lt;li>IPV6 公网地址容易获取。&lt;/li>
+&lt;li>DDNS 服务会自动更新你的域名解析，以便即使你的 IPv6 地址发生变化，你依然可以通过同一个域名访问你的设备。&lt;/li>
+&lt;li>通过域名访问 NAS 比官方的 QC 速度更快。&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-前置准备">2 前置准备&lt;/h2>
+&lt;p>&lt;strong>设备&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>光猫，路由器支持 IPV6&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>DNS&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>腾讯云、阿里云等运营商处购买一个域名&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-设备设置">3 设备设置&lt;/h2>
+&lt;h3 id="光猫设置">光猫设置&lt;/h3>
+&lt;p>电信网关举例&lt;/p>
+&lt;ol>
+&lt;li>进入网关后台 ：http://192.168.1.1&lt;/li>
+&lt;li>网络设置连接方式修改为 &lt;code>桥接&lt;/code>，IP模式设置为 &lt;code>IPV4&amp;amp;IPV6&lt;/code>&lt;/li>
+&lt;li>确认已开启 IPV6&lt;/li>
+&lt;/ol>
+&lt;h3 id="路由器设置">路由器设置&lt;/h3>
+&lt;p>小米路由器举例，后台地址http://192.168.2.1&lt;/p>
+&lt;ol>
+&lt;li>开启 IPV6&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602173828421.png"
+width="1126"
+height="391"
+srcset="/hiwikhome/nasddns/image-20240602173828421_hu353115a814b629a7349b562912cdf594_12995_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602173828421_hu353115a814b629a7349b562912cdf594_12995_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="ipv6开启"
+class="gallery-image"
+data-flex-grow="287"
+data-flex-basis="691px"
+>&lt;/p>
+&lt;ol start="2">
+&lt;li>修改为 PPPOE 模式，输入账号，密码&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602173908482.png"
+width="872"
+height="624"
+srcset="/hiwikhome/nasddns/image-20240602173908482_hued582e7e02b984dbd8e529aa6830e2cc_17326_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602173908482_hued582e7e02b984dbd8e529aa6830e2cc_17326_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="pppoe"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="335px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>设置端口转发，将群晖后台的端口进行转发设置，由于我是用的默认的 所以是 5000，5001。如有更改请自行配置。
+&lt;img src="/hiwikhome/nasddns/image-20240602174051156.png"
+width="1207"
+height="934"
+srcset="/hiwikhome/nasddns/image-20240602174051156_huceeb36541ab01837fec59b43c8400e6d_47415_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602174051156_huceeb36541ab01837fec59b43c8400e6d_47415_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="路由器设置"
+class="gallery-image"
+data-flex-grow="129"
+data-flex-basis="310px"
+>&lt;/li>
+&lt;/ol>
+&lt;h3 id="设置校验">设置校验&lt;/h3>
+&lt;p>设置完毕后，群晖网络设置中能查看到分配到的 IPV6 公网 IP 地址， 如下图的 240e 开头这个&lt;/p>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602180219409.png"
+width="1165"
+height="452"
+srcset="/hiwikhome/nasddns/image-20240602180219409_hub2feb636b984db73037aa00a87a6c793_42843_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602180219409_hub2feb636b984db73037aa00a87a6c793_42843_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="设置完毕"
+class="gallery-image"
+data-flex-grow="257"
+data-flex-basis="618px"
+>&lt;/p>
+&lt;h2 id="4-群晖-nas-设置">4 群晖 NAS 设置&lt;/h2>
+&lt;ol>
+&lt;li>安装套件 &lt;code>DDNS-GO&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602174931178.png"
+width="262"
+height="151"
+srcset="/hiwikhome/nasddns/image-20240602174931178_huf7200663a2e54012b8acd2541f05e0b1_9389_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602174931178_huf7200663a2e54012b8acd2541f05e0b1_9389_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="ddns-go"
+class="gallery-image"
+data-flex-grow="173"
+data-flex-basis="416px"
+>&lt;/p>
+&lt;ol start="2">
+&lt;li>去运营商处设置域名解析&lt;/li>
+&lt;/ol>
+&lt;p>设置主机记录，记录类型： &lt;code>AAAA&lt;/code> ， 记录值为群晖的 &lt;code>IPV6地址&lt;/code>&lt;/p>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602175753635.png"
+width="1660"
+height="197"
+srcset="/hiwikhome/nasddns/image-20240602175753635_hu6257edd21ecdc001e4aad7104d1cb867_20975_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602175753635_hu6257edd21ecdc001e4aad7104d1cb867_20975_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="aaaa"
+class="gallery-image"
+data-flex-grow="842"
+data-flex-basis="2022px"
+>&lt;/p>
+&lt;ol start="3">
+&lt;li>进入DDNS-GO 进行设置&lt;/li>
+&lt;/ol>
+&lt;p>腾讯云需选择 &lt;code> DnsPod Token&lt;/code> ， 同时在腾讯云的 DnsPod 创建一组 key，用于后续自动动态更新 IPV6 地址&lt;/p>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602180547704.png"
+width="2162"
+height="813"
+srcset="/hiwikhome/nasddns/image-20240602180547704_huc8730e1ff5fa0553a9d9521eda50cdef_68417_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602180547704_huc8730e1ff5fa0553a9d9521eda50cdef_68417_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="265"
+data-flex-basis="638px"
+>&lt;/p>
+&lt;p>设置 DNS 服务商相关信息，ID 与 Token 填写刚创建的那组&lt;/p>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602175941831-1.png"
+width="1326"
+height="398"
+srcset="/hiwikhome/nasddns/image-20240602175941831-1_hu18320c6d86a630176dd56b6e0d601a85_22712_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602175941831-1_hu18320c6d86a630176dd56b6e0d601a85_22712_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="333"
+data-flex-basis="799px"
+>&lt;/p>
+&lt;p>IPV6 处设置域名&lt;/p>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602180731208.png"
+width="1458"
+height="502"
+srcset="/hiwikhome/nasddns/image-20240602180731208_hu833e9dff2072b27ae1c55e0313559394_36644_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602180731208_hu833e9dff2072b27ae1c55e0313559394_36644_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="290"
+data-flex-basis="697px"
+>&lt;/p>
+&lt;p>&lt;code>DDNS-GO&lt;/code> 保存退出即可,完成后会弹出成功映射的提示弹窗，类似下图，至此已经完成了 IPVR 与 DDNS 相关配置的设置&lt;/p>
+&lt;p>&lt;img src="/hiwikhome/nasddns/image-20240602180846834.png"
+width="704"
+height="57"
+srcset="/hiwikhome/nasddns/image-20240602180846834_hu637cac04fa475f53a9c586e24b40e471_6035_480x0_resize_box_3.png 480w, /hiwikhome/nasddns/image-20240602180846834_hu637cac04fa475f53a9c586e24b40e471_6035_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="alt text"
+class="gallery-image"
+data-flex-grow="1235"
+data-flex-basis="2964px"
+>&lt;/p>
+&lt;h2 id="tips">Tips&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>路由器要设置为 PPPOE 模式, 光猫设置为桥接&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>否则有可能出现 IPV6 公网地址获取不到的现象&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>避免双重NAT问题&lt;/p>
+&lt;ul>
+&lt;li>光猫通常具有路由功能，默认情况下它会对连接的设备进行NAT（网络地址转换）。如果在光猫后再连接一个路由器并启用其路由功能，就会形成双重NAT（Double NAT）。双重NAT会导致网络性能下降，影响一些应用程序和服务的正常运行，尤其是需要端对端连接的应用，如在线游戏和VPN。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>IPv6地址分配的优化&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>在桥接模式下，光猫会将来自ISP（互联网服务提供商）的IP地址直接分配给下游设备（路由器）。这样，路由器可以直接从ISP获取一个公共的IPv6地址或前缀，从而更好地进行IPv6地址分配和管理。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用PPPoE拨号方式，路由器可以直接与ISP建立连接，获取完整的IPv6地址范围（通常是一个/64或更大范围的前缀），使内部网络中的每个设备都能获得一个公共的IPv6地址。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>不要用群晖官方自带的 DDNS 映射，官方的只支持 IPV4 的映射，所以此处选择套件 &lt;code>DDNS-GO&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>PPPOE 模式的账号密码与光猫、路由器的后台密码，均可以找宽带小哥获取&lt;/p>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>
