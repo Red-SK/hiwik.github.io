@@ -153,7 +153,7 @@ data-flex-basis="2964px"
 &lt;ol>
 &lt;li>
 &lt;p>路由器要设置为 PPPOE 模式, 光猫设置为桥接&lt;/p>
-&lt;ol>
+&lt;ul>
 &lt;li>
 &lt;p>否则有可能出现 IPV6 公网地址获取不到的现象&lt;/p>
 &lt;/li>
@@ -174,7 +174,7 @@ data-flex-basis="2964px"
 &lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol>
+&lt;/ul>
 &lt;/li>
 &lt;li>
 &lt;p>不要用群晖官方自带的 DDNS 映射，官方的只支持 IPV4 的映射，所以此处选择套件 &lt;code>DDNS-GO&lt;/code>&lt;/p>
