@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiwiK</title><link>/</link><description>Recent content on HiwiK</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Hong Sikun</copyright><lastBuildDate>Sun, 02 Jun 2024 18:18:02 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>群晖IPV6 + DDNS</title><link>/hiwikhome/nasddns/</link><pubDate>Sun, 02 Jun 2024 18:18:02 +0800</pubDate><guid>/hiwikhome/nasddns/</guid><description>&lt;img src="/hiwikhome/nasddns/post.png" alt="Featured image of post 群晖IPV6 + DDNS" />&lt;h2 id="1-为什么需要-ipv6--ddns">1 为什么需要 IPv6 + DDNS&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiwiK</title><link>/</link><description>Recent content on HiwiK</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Hong Sikun</copyright><lastBuildDate>Sun, 02 Jun 2024 18:18:02 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>群晖IPV6 + DDNS</title><link>/hiwikhome/nasddns/</link><pubDate>Sun, 02 Jun 2024 18:18:02 +0800</pubDate><guid>/hiwikhome/nasddns/</guid><description>&lt;img src="/hiwikhome/nasddns/post.png" alt="Featured image of post 群晖IPV6 + DDNS" />&lt;h2 id="为什么需要-ipv6--ddns">为什么需要 IPv6 + DDNS&lt;/h2>
 &lt;ul>
-&lt;li>IPV4 公网地址现在难以从运营商获取，即使可以获取也需要额外的价钱。&lt;/li>
-&lt;li>IPV6 公网地址容易获取。&lt;/li>
+&lt;li>IPV4 公网地址现在难以从运营商获取，即使可以获取也需要额外的价钱。IPV6 公网地址容易获取。&lt;/li>
 &lt;li>DDNS 服务会自动更新你的域名解析，以便即使你的 IPv6 地址发生变化，你依然可以通过同一个域名访问你的设备。&lt;/li>
 &lt;li>通过域名访问 NAS 比官方的 QC 速度更快。&lt;/li>
 &lt;/ul>
-&lt;h2 id="2-前置准备">2 前置准备&lt;/h2>
+&lt;h2 id="前置准备">前置准备&lt;/h2>
 &lt;p>&lt;strong>设备&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>光猫，路由器支持 IPV6&lt;/li>
@@ -14,7 +13,7 @@
 &lt;ul>
 &lt;li>腾讯云、阿里云等运营商处购买一个域名&lt;/li>
 &lt;/ul>
-&lt;h2 id="3-设备设置">3 设备设置&lt;/h2>
+&lt;h2 id="设备设置">设备设置&lt;/h2>
 &lt;h3 id="光猫设置">光猫设置&lt;/h3>
 &lt;p>电信网关举例&lt;/p>
 &lt;ol>
@@ -75,7 +74,7 @@ class="gallery-image"
 data-flex-grow="257"
 data-flex-basis="618px"
 >&lt;/p>
-&lt;h2 id="4-群晖-nas-设置">4 群晖 NAS 设置&lt;/h2>
+&lt;h2 id="群晖-nas-设置">群晖 NAS 设置&lt;/h2>
 &lt;ol>
 &lt;li>安装套件 &lt;code>DDNS-GO&lt;/code>&lt;/li>
 &lt;/ol>
