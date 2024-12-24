@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JNI on HiwiK</title><link>/tags/jni/</link><description>Recent content in JNI on HiwiK</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Hong Sikun</copyright><lastBuildDate>Tue, 24 Dec 2024 12:44:03 +0800</lastBuildDate><atom:link href="/tags/jni/index.xml" rel="self" type="application/rss+xml"/><item><title>JNI 调用 DLL</title><link>/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/</link><pubDate>Tue, 24 Dec 2024 12:44:03 +0800</pubDate><guid>/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/</guid><description>&lt;img src="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/post.png" alt="Featured image of post JNI 调用 DLL" />&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JNI on HiwiK</title><link>/tags/jni/</link><description>Recent content in JNI on HiwiK</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Hong Sikun</copyright><lastBuildDate>Tue, 24 Dec 2024 12:44:03 +0800</lastBuildDate><atom:link href="/tags/jni/index.xml" rel="self" type="application/rss+xml"/><item><title>JNI 调用 DLL</title><link>/hiwikhome/jni/</link><pubDate>Tue, 24 Dec 2024 12:44:03 +0800</pubDate><guid>/hiwikhome/jni/</guid><description>&lt;img src="/hiwikhome/jni/post.png" alt="Featured image of post JNI 调用 DLL" />&lt;blockquote>
 &lt;p>本文使用环境： java sdk 1.8 + visual studio 2017&lt;/p>
 &lt;/blockquote>
 &lt;h1 id="java生成头文件">java生成头文件&lt;/h1>
@@ -37,10 +37,10 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">javah testDll
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image.png"
+&lt;/div>&lt;p>&lt;img src="/hiwikhome/jni/image.png"
 width="1195"
 height="192"
-srcset="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image_hu276b7c2f7ceb217bb394b38475c84c5b_50978_480x0_resize_box_3.png 480w, /hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image_hu276b7c2f7ceb217bb394b38475c84c5b_50978_1024x0_resize_box_3.png 1024w"
+srcset="/hiwikhome/jni/image_hu276b7c2f7ceb217bb394b38475c84c5b_50978_480x0_resize_box_3.png 480w, /hiwikhome/jni/image_hu276b7c2f7ceb217bb394b38475c84c5b_50978_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="622"
@@ -48,39 +48,39 @@ data-flex-basis="1493px"
 >&lt;/p>
 &lt;h1 id="c构建dll工程">C++构建dll工程&lt;/h1>
 &lt;p>Visual Studio新建DLL工程。注意，工程名必须与java约定的dll名一致。&lt;/p>
-&lt;p>&lt;img src="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-1.png"
+&lt;p>&lt;img src="/hiwikhome/jni/image-1.png"
 width="1197"
 height="822"
-srcset="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-1_huad3c24cbc335e80c50c364f800dbcdda_292242_480x0_resize_box_3.png 480w, /hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-1_huad3c24cbc335e80c50c364f800dbcdda_292242_1024x0_resize_box_3.png 1024w"
+srcset="/hiwikhome/jni/image-1_huad3c24cbc335e80c50c364f800dbcdda_292242_480x0_resize_box_3.png 480w, /hiwikhome/jni/image-1_huad3c24cbc335e80c50c364f800dbcdda_292242_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="145"
 data-flex-basis="349px"
 >&lt;/p>
 &lt;p>工程的附加包含目录需添加jni.h、jni_md.h所在的目录。&lt;/p>
-&lt;p>&lt;img src="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-2.png"
+&lt;p>&lt;img src="/hiwikhome/jni/image-2.png"
 width="1199"
 height="607"
-srcset="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-2_hu6ba956323d086a7d7899504a4a95c849_147508_480x0_resize_box_3.png 480w, /hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-2_hu6ba956323d086a7d7899504a4a95c849_147508_1024x0_resize_box_3.png 1024w"
+srcset="/hiwikhome/jni/image-2_hu6ba956323d086a7d7899504a4a95c849_147508_480x0_resize_box_3.png 480w, /hiwikhome/jni/image-2_hu6ba956323d086a7d7899504a4a95c849_147508_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="197"
 data-flex-basis="474px"
 >
-&lt;img src="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-3.png"
+&lt;img src="/hiwikhome/jni/image-3.png"
 width="1199"
 height="410"
-srcset="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-3_hu5aeb436eebd3eb50a213c24783273717_80053_480x0_resize_box_3.png 480w, /hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-3_hu5aeb436eebd3eb50a213c24783273717_80053_1024x0_resize_box_3.png 1024w"
+srcset="/hiwikhome/jni/image-3_hu5aeb436eebd3eb50a213c24783273717_80053_480x0_resize_box_3.png 480w, /hiwikhome/jni/image-3_hu5aeb436eebd3eb50a213c24783273717_80053_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="292"
 data-flex-basis="701px"
 >&lt;/p>
 &lt;p>将java生成的头文件加入工程，为其实现.cpp文件即可。&lt;/p>
-&lt;p>&lt;img src="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-5.png"
+&lt;p>&lt;img src="/hiwikhome/jni/image-5.png"
 width="1178"
 height="550"
-srcset="/hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-5_hu2dfa2859b029922892ce31e94ee7a1d5_116427_480x0_resize_box_3.png 480w, /hiwikhome/jni-%E8%B0%83%E7%94%A8-dll/image-5_hu2dfa2859b029922892ce31e94ee7a1d5_116427_1024x0_resize_box_3.png 1024w"
+srcset="/hiwikhome/jni/image-5_hu2dfa2859b029922892ce31e94ee7a1d5_116427_480x0_resize_box_3.png 480w, /hiwikhome/jni/image-5_hu2dfa2859b029922892ce31e94ee7a1d5_116427_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="214"
